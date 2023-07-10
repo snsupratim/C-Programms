@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+void swap2(int *a,int *b)
+{
+	int t;
+	t=*a;
+	*a=*b;
+	*b=t;
+}
+  int main()
+  {
+
+  //without third variable:
+  	int a,b;
+  	printf("enter two integer = \n");
+  	scanf("%d %d",&a,&b);
+  	printf("Before swapping,the integers,a=%d b=%d",a,b);
+  	a=a+b;
+  	b=a-b;
+  	a=a-b;
+  	printf("\nafter swapping,the integers,a=%d b=%d",a,b); 
+  	return 0;
+
+// using function:
+   	int a,b;
+	printf("enter two integer = \n");
+	scanf("%d%d",&a,&b);
+	
+
+	
+		printf("\n call by address");
+	printf("\nbefore swap a=%d b=%d",a,b);
+	swap2(&a,&b);
+	printf("\n after swap a=%d b=%d",a,b);
+  	
+  }
