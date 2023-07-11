@@ -1,0 +1,79 @@
+//1.recursive binary:
+#include <stdio.h>
+int binarySearch(int arr[], int left, int right, int target) {
+    if (left <= right) {
+        int mid = (left + right) / 2;
+
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] > target) {
+            return binarySearch(arr, left, mid - 1, target);
+        } else {
+            return binarySearch(arr, mid + 1, right, target);
+        }
+    }
+
+    return -1; // Target element not found
+}
+
+int main() {
+    int arr[] = {2, 4, 6, 8, 10, 12};
+    int target = 8;
+    int length = sizeof(arr) / sizeof(arr[0]);
+
+    int result = binarySearch(arr, 0, length - 1, target);
+
+    if (result == -1) {
+        printf("Element not found in the array.\n");
+    } else {
+        printf("Element found at index %d.\n", result);
+    }
+
+    return 0;
+}
+//2.recursive fibonacci:
+#include<stdio.h>
+void fibo1(int a,int b,int n);
+int main()
+{
+	int n;
+	printf("nterthe range = \n");
+	scanf("%d",&n);
+	fibo1(0,1,n);
+	return 0;
+}
+
+void fibo1(int a,int b,int n)
+{
+	if(n>0)
+	{
+		printf("%d\t",a);
+		fibo1(b,a+b,n-1);
+	}
+}
+//3.gcd :
+#include<stdio.h>
+
+int findgcd (int x,int y);
+int main()
+{
+	int x,y,g;
+	printf("enter tw integer = ");
+	scanf("%d%d",&x,&y);
+	g=findgcd(x,y);
+	printf("the gcd is %d",g);
+	return 0;
+}
+
+int findgcd( int a,int b)
+{
+	if((a%b)!=0)
+	{
+		findgcd(b,a%b);
+	}
+	else
+	{
+		return b;
+	}
+}
+
